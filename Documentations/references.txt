@@ -1,0 +1,30 @@
+
+Example GitHub Repositories
+
+- [Recommender Systems in Python](https://github.com/murpi/wilddata/tree/master/py/9. Recommender%20systems):** Collection of recommender system implementations.
+- [Surprise Library Examples](https://github.com/NicolasHug/Surprise):** Official repository with examples using the Surprise library.
+- [LightFM Example](https://github.com/lyst/lightfm):** Implementation of the LightFM hybrid recommender.
+- [TensorFlow Recommenders](https://github.com/tensorflow/recommenders):** A library for building recommender system models with TensorFlow.
+
+---
+
+YouTube Tutorials and Courses
+
+- [Building a Recommender System with Python and Surprise](https://www.youtube.com/watch?v=ZspR5PZemcs):** Step-by-step guide using the Surprise library.
+- [Recommender Systems in Python - Full Course](https://www.youtube.com/watch?v=85iZYXmxXqM):** Comprehensive course covering various recommendation algorithms.
+- [TensorFlow Recommenders Tutorial](https://www.youtube.com/watch?v=tuC7Bf3PZik):** Building and deploying recommenders using TensorFlow.
+- [Flask API Tutorial for Recommender Systems](https://www.youtube.com/watch?v=GMppyAPbLYk):** How to serve recommendation models via Flask APIs.
+- [FastAPI Tutorial for Machine Learning Models](https://www.youtube.com/watch?v=0RSuUTEBfN8):** Deploying ML models with FastAPI.
+
+---
+
+
+GitHub Repositories:
+- [Example E-Commerce Website](https://github.com/Shopify/sarama) - This is a mock repository, but searching GitHub for "e-commerce website" or "recommender system" will provide real examples.
+- [Recommendation System with Python](https://github.com/JustGlowing/minisom) - This repository demonstrates the implementation of a simple recommender system.
+
+YouTube Tutorials
+- [How to Build an E-commerce Website with Django (Full Tutorial)](https://www.youtube.com/watch?v=w3cjFjJxNx0)
+- [Creating a Recommendation System in Python](https://www.youtube.com/watch?v=9gBC9R-msAk)
+- [React E-Commerce Site from Scratch](https://www.youtube.com/watch?v=ZGoqNEUjUCY)
+

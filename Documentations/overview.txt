@@ -1,0 +1,137 @@
+********** E Commerce Website *************
+
+
+Ecommerse sites have gained a lot of popularity since the lockdown where the people have started using it. It is mainly based on the principle of AI where the machine 
+learns about the pattern of the user of what they buy and what they search for over a period of time.
+
+In this model we have huge large amount of data for models to train on. These data would help the models in the process of pre train and when the users start using it 
+would be fined tuned using the real time data.
+
+Q. What are reommendation system?
+
+-It is system which will help the users to screen choices on the bases what they search for. Or the system can be trained the type of visuals the customer consumes.
+Is an industry where recommendation systems were first widely used. With millions of customers and data on their online behavior, e-commerce companies are best suited
+to generate accurate recommendations.
+
+
+Q.How will this system work?
+
+System collects customer data and auto analyze it to generate customise recommendations for your customers. These system can be based both on 
+-Implicit data - browsing history and past purchases 
+-Explicit data - ratings provided by the users
+
+Usually e-commerce sites are based om item to item collaborative filtering. It suggests item to users based on how similar they are to item a user has already shown interest in 
+This techinique is based on the idea that users have similar preferences to those who have reted items in a similar way.
+
+It calculates similarity between item using the ratings users given to items.
+
+
+*****BLUEPRINT*****
+1. Front End Architecture 
+-------------------------
+
+---Technologies---
+
+-HTML/CSS/JavaScript : Basic structure,styling and interactivity.
+-React.js : Modern front end frameWork for building
+-Bootstrap : responsive design and UI components
+-FetchAPI : HTTP requests to back-end
+
+---Components or Contents of FrontEnd---
+
+* HomePage :
+Displays product when loaded usually personalized recommendation based when logged in or default for new users 
+
+*Product-Listing_Page :
+Shows product of specific category wiht filtering and sorting options based on user choices.
+
+*Product Detail Page :
+Shows detailed information about the product
+
+*Shopping Cart :
+Selected item from the users that have been saved 
+
+*Checkout Page :
+Page where the payment from the user side would be done and further order information.
+
+*User-Profile :
+Allows the user to manage their information,check their order history and see personalized recommendation
+
+*Search Functionality :
+Helps the users to search for products along with auto suggestions.
+
+---Recommender System Front End---
+(The recommendation work in the front end will just be the display of the logics that have been fetched from the recommendation
+logics written in ML(Machine Learning))
+
+Three types of recommendations exist 
+#Personalized Recommendation System 
+Displayed almost everywhere from homepage, product page and the user profile
+
+#Collaborative Filtering 
+Suggest products based on what similar users have purchased 
+
+#Content Based Filtering 
+Recommends products based on on the user's past interactions and preferences.
+
+2. Back End Architecture 
+------------------------
+
+1. Database
+- SQL : DataBase system to store data about user reviews, product info and transactional details/postgreSQL
+
+2. Back-End Logic
+- python/java-spring boot
+
+3. For Server Side Operations
+- Django/Node.js/flask
+
+4. For authentication and authorization 
+- JWT(Json Web Tokens)
+
+5. Redis
+- For Catching frequently accesed data to improve performance of the model 
+
+6. Nginx:  
+-For managing the web traffic 
+
+7. Deployement and Containerization
+-Docker 
+
+---Components of Back-end---
+#User Management System
+- Handles the user registraion,authentication, and profile management 
+
+#Product Management System 
+- Manages product catalog, inventory pricing and product metadata 
+
+#Order Management System 
+- Process and tracts order from the checkout to delivery 
+
+#Payment Gateway Integration 
+- Interfacew with payment service like stripe and paypal
+
+---Recommender System Backend---
+#Data Collecttion
+- Gathers user interaction data(views clicks purchases)
+
+#Data Processing 
+- Cleans and pre processes daya for model training 
+
+#Model Training 
+- Uses machine learning algorithm like collaborative filtering matrix factorization or neural network 
+
+#Prediction API 
+- Provides product recommendations to the front end based on user data.
+
+3. Deployement and Hosting 
+--------------------------
+
+#AWS/GCP/Azure 
+- Cloud platforms for hosting the application 
+
+#CI/CD Pipelines 
+-Use GitHub Action,jenkins for integrations and continous deployed along with logics
+
+#Monitoring and Analysis
+-New Relic and google Analytics for tracking performance and user behavior 

@@ -1,0 +1,27 @@
+* Tools and Libraries
+
+a. Data Processing:
+- Pandas: Data manipulation and analysis
+- Numpy: Numerical computations
+- Scikit-learn: Machine learning utilities
+
+b. Recommendations Algorithms:
+- Surprise : Easy to use libraries for building and analyzing recommender systems.
+- LightFM: Hybrid Recommendation Algorithms
+- Implicit: Fast python Library for collaborative filtering for implicit detasets 
+
+c. Deep Learning 
+- Tensorflow/Keras: for building neural networkbased recommenders.
+- Pytorch: Flexible deep learning framework
+
+d. API Development:
+- Flask: Lightweight web framework for building RESTful APIs
+- FastAPI: Fast(high performance) web framework for building APIs with python
+
+e. Deployement: 
+- Docker: Containerization for easy deployment
+- Kubernetes: Container orchestration for scalable deployment
+
+f. Monitoring and logging:
+- Prometheus and Grafana: Monitoring and alerting system
+- ELF stack(Elasticsearch,logstash and kibana): Centralized logging and analysis.

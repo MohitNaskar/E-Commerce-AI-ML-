@@ -1,0 +1,216 @@
+It will include several stages starting from 
+
+1. Data Collection and storage 
+2. Data Processing and Feature Engineering 
+3. Model Training and selections
+4. Evaluation
+5. Deployement and integration 
+6. Monitoring and Maintainance 
+
+
+1. Data Collection and Storage
+---------------------------
+
+a. Data Sources
+
+# User Data 
+-User Profiles,browsing history,ratings and reviews
+
+#Product Data
+- Product Details, categories, price, descriptions and imagaes of the produt 
+
+#Interaction data
+Clicks, views, add-to-cart and purchase transactions
+
+b. Data Storage
+
+* Databases
+-SQL : to store structured data /postgreSQL
+
+* Data WareHousing 
+- Google BigQery SandBox, Limits: 1TB of quering and 10 GB of storage per month 
+
+* Data Lakes
+- Google cloud storage with free tier
+
+c. Data Ingestion:
+
+#ETL Pipelines
+- Here we need to automate, extract transform and load the data to the model
+
+#APIS
+- Integrate with third-party servicees to gether additional data if necessary 
+
+3. Data Processing and Feature Engineering 
+
+a. Data Cleaning:
+- Handle Missing Values
+- Remove Duplicates 
+
+b. Feature Engineering
+- User Features
+- Item Features 
+- Interaction Feature
+
+c. Data Transformation 
+
+* Encoding Categorical Variables
+- Use techniques like on-hot encoding or label encoding 
+
+*Scaling Numerical Features 
+- Apply Normalization and standardization as needed
+
+d. Data Splitting:
+- Training validation testing 
+(spliting the model to evaluate the model performance)
+
+4. Model Selection and Training 
+
+a Collaborative Filtering:
+- User-Based-Collaborative Filtering: Recommend products based on similar users
+- Item_based-Collaboration: Recommend products based on similar to items the users has iteracted with.
+
+- Libraries/Tools: scikit-learn, Tensorflow,Pytorch
+
+b. Content-Based Filtering 
+
+-Approach: Recomend products similar to those user had liked in the past based on product feature
+-Techniques: Tf-IDF,cosine similarity,neural networks for embedding generation.
+-Libraries/Tools: scikit-learn,TensorFlow,Pytorch
+
+c. Hybrid Models
+
+- Combinations of Collaborative and Content_based: Leverage both users interations and product features 
+    for recommendations
+- Advantages: Improved accuracy and coverage 
+
+d. Advanced Models:
+
+- Matric Factoriazation: Techniques like Singular Value Decomposition
+- Deep Learning Models: Neural Collaborative Filtering, Autoencoders.
+- Sequential Models: Recurrent Neural Network(RNN) for session-based recommendations.
+- Libraries/ Tools: Tensorflow, Pytorch,keras, Implicit
+
+e. Training Steps:
+
+-Choose the Algorithm
+- Implement the Model
+-Train the Model
+- Tune Hyperparameters: Optimize model parameters using techniques like grid search and Bayesian optimizations.
+
+
+*****************************************
+from surprise import Dataset, Reader, SVD
+from surprise.model_selection import cross_validate
+
+# Load data
+reader = Reader(rating_scale=(1, 5))
+data = Dataset.load_from_df(user_item_df[['user_id', 'item_id', 'rating']], reader)
+
+# Choose algorithm
+algo = SVD()
+
+# Evaluate with cross-validation
+cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5, verbose=True)
+
+# Train on full data
+trainset = data.build_full_trainset()
+algo.fit(trainset)
+
+*****************************************
+
+5. Model Evaluations:
+
+I. Evaluation Metrics:
+- Root Mean Square Error(RSME): Measures the difference between predicted and actual ratings.
+
+b. MAE(Mean Absolute Error):
+- Average absolute differences between predicted and actual ratings.
+
+c. Precision@k and Recall@k: 
+- Measures the accuracy of the top k recommendations 
+
+d. F1 score: Harmonic mean of precision and recall.
+
+e. Coverage: The proportion of items and the system can recommend.
+
+f. Diversity: Variety in the recommended items.
+
+f. Serendipity: Unexpected but relevant recommendations.
+
+II. Validation Techniques:
+- Cross Validation: Asses Model Performance across different data splits.
+
+-Train Test Splits: Separate the daya into training and test sets.
+
+III. A/B Testing:
+- Real-World Test: Deploy different recommendations models to different user segments and compare performance 
+
+6. Deployement and Integration
+
+a. Model Serving:
+- API: Use framework like FLast or FastAPI to create Restfull APIS for serving recommendations.
+
+************************************
+from fastapi import FastAPI
+import pickle
+
+app = FastAPI()
+
+# Load trained model
+with open('recommendation_model.pkl', 'rb') as f:
+    model = pickle.load(f)
+
+@app.get("/recommend/{user_id}")
+def recommend(user_id: int, top_n: int = 10):
+    recommendations = model.get_recommendations(user_id, top_n)
+    return {"user_id": user_id, "recommendations": recommendations}
+
+**************************************
+
+b. Containerization 
+- Docker: Create a Dockerfile to containerize the model serving API.
+
+****************
+FROM python:3.9
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+****************
+
+c. Hosting:
+- Cloud Platforms:Deploye on AWS(EC2,ECS), Google Cloud(App Engine,Kubernetes), Azure
+- Serverless Options:AWS Lambda, Google Functions for scalable, on-demand executions.
+
+d. Integration with E-Commerce Platform 
+- Front-End_ API Integration: Use AJAX for fetch call to retrive recommendations from the API and display them on the 
+website
+- Personalizations: Embeded recommendations widgets on homepage,product pages, user, dashboards, etc.
+
+7.Monitoring and Maintainance
+
+a. Monitoring
+- Performance Metrics: Track API response times, throughput and error rates.
+- Recommendation Quality: Continuously monitor metrics like click through rates(CTR), conversion rate and user engagement 
+
+b. Logging
+- Tools: 
+Use logging frameworks(python logging module) and centralized logging services(ELK stack Splunk)
+
+c. Model Retraining:
+- Scheduled retraining: Set up periodic retraining pipelines to incorporate new data and adapt to changing 
+user behaviors.
+- Automated Pipelines: Use tools like Apache Airflow or Kubeflow for orchestrating retaining workflows.
+
+d. A/B testing and feedback Loops:
+- User Feedbacks: Collect feedbacks to refine recommendation algorithms.
+Iterative Improvements: use insights from monitoring and feedback to enhance models.
+
