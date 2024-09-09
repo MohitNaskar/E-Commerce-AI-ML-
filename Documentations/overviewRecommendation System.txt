@@ -96,7 +96,7 @@ e. Training Steps:
 -Choose the Algorithm
 - Implement the Model
 -Train the Model
-- Tune Hyperparameters: Optimize model parameters using techniques like grid search and Bayesian optimizations.
+- Tune Hyperparameters: Optimize model parameters using techniques like grid search, Bayesian optimizations and optuna.
 
 
 *****************************************
